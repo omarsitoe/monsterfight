@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3ewpl6j6wwg5"]
+
+[ext_resource type="Texture2D" uid="uid://cx3akxvx53lsm" path="res://img/sample/solid-melon.png" id="1_tdv5h"]
+[ext_resource type="Script" path="res://src/overworld/player/movement.gd" id="2_eo6un"]
+[ext_resource type="Texture2D" uid="uid://2u32m8k7l8nc" path="res://img/sample/solid-dark-green.png" id="2_f31l3"]
+
+[node name="root" type="Node2D"]
+
+[node name="scene" type="Node" parent="."]
+
+[node name="bkg-img" type="Sprite2D" parent="scene"]
+z_index = -10
+texture_repeat = 2
+scale = Vector2(100, 100)
+texture = ExtResource("1_tdv5h")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(120, 120)
+script = ExtResource("2_eo6un")
+
+[node name="player" type="Sprite2D" parent="CharacterBody2D"]
+z_index = 1
+texture = ExtResource("2_f31l3")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D/player"]
+position_smoothing_enabled = true
