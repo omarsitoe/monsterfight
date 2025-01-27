@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3ewpl6j6wwg5"]
+[gd_scene load_steps=5 format=3 uid="uid://c3ewpl6j6wwg5"]
 
 [ext_resource type="Texture2D" uid="uid://cx3akxvx53lsm" path="res://img/sample/solid-melon.png" id="1_tdv5h"]
+[ext_resource type="Texture2D" uid="uid://jjffo8272w4g" path="res://img/sample/solid-green.png" id="2_4hj1s"]
 [ext_resource type="Script" path="res://src/overworld/player/movement.gd" id="2_eo6un"]
 [ext_resource type="Texture2D" uid="uid://2u32m8k7l8nc" path="res://img/sample/solid-dark-green.png" id="2_f31l3"]
 
@@ -14,13 +15,24 @@ texture_repeat = 2
 scale = Vector2(100, 100)
 texture = ExtResource("1_tdv5h")
 
+[node name="Solid-green" type="Sprite2D" parent="scene"]
+position = Vector2(-1259, -480)
+scale = Vector2(5, 5)
+texture = ExtResource("2_4hj1s")
+
+[node name="spirit" type="Sprite2D" parent="scene"]
+position = Vector2(996, -728)
+texture = ExtResource("2_f31l3")
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(120, 120)
 script = ExtResource("2_eo6un")
+speed = 1000
 
 [node name="player" type="Sprite2D" parent="CharacterBody2D"]
 z_index = 1
 texture = ExtResource("2_f31l3")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D/player"]
+zoom = Vector2(0.25, 0.25)
 position_smoothing_enabled = true

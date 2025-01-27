@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://1pnsfttl0pcb"]
+
+[ext_resource type="Texture2D" uid="uid://cx3akxvx53lsm" path="res://img/sample/solid-melon.png" id="1_0ps3c"]
+[ext_resource type="Texture2D" uid="uid://jjffo8272w4g" path="res://img/sample/solid-green.png" id="2_tnuby"]
+[ext_resource type="Texture2D" uid="uid://2u32m8k7l8nc" path="res://img/sample/solid-dark-green.png" id="3_sk6vp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gksi"]
+size = Vector2(22492, 5604)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d7d6a"]
+size = Vector2(227, 223)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="bkg" type="Sprite2D" parent="Node2D"]
+scale = Vector2(100, 100)
+texture = ExtResource("1_0ps3c")
+
+[node name="floor" type="RigidBody2D" parent="Node2D"]
+position = Vector2(0, 3262)
+gravity_scale = 0.0
+freeze = true
+
+[node name="floor-collision" type="CollisionShape2D" parent="Node2D/floor"]
+position = Vector2(22, 1829)
+shape = SubResource("RectangleShape2D_8gksi")
+
+[node name="floor" type="Sprite2D" parent="Node2D/floor/floor-collision"]
+scale = Vector2(100, 25)
+texture = ExtResource("2_tnuby")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.09, 0.09)
+
+[node name="player1" type="RigidBody2D" parent="."]
+position = Vector2(-4420, 558)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player1"]
+position = Vector2(-0.5, -0.5)
+scale = Vector2(5, 7)
+shape = SubResource("RectangleShape2D_d7d6a")
+
+[node name="playerImg" type="Sprite2D" parent="player1"]
+scale = Vector2(5, 7)
+texture = ExtResource("3_sk6vp")
